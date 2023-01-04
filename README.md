@@ -22,5 +22,15 @@ settings():
     user.fire_chicken_pop_string = 'right'
 ```
 
+## Control Left Click With Google Chrome
+```
+app: Google Chrome
+-
+settings():
+    user.fire_chicken_pop_action = 2
+    user.fire_chicken_pop_string = 'ctrl'
+    user.fire_chicken_pop_integer = 0
+```
+
 # Disabling the Configurable Pop
 If you want to disable the configurable pop in specific contexts, you can activate the fire_chicken_pop_disabled tag.
