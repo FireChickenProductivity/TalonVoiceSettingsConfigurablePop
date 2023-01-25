@@ -32,6 +32,10 @@ def perform_noise_action(action_number, action_string, action_integer):
         hold_key(action_string)
         actions.mouse_click(action_integer)
         release_key(action_string)
+    elif action_number == 3:
+        action = getattr(actions, action_string)
+        action()
+
 
 def hold_key(key: str):
     if key != '':
