@@ -25,6 +25,13 @@ pop_action_integer = module.setting(
     desc = 'influences the behavior of many pop actions'
 )
 
+disable_fire_chicken_pop_when_eye_tracker_disabled = module.setting(
+    'fire_chicken_pop_disabled_by_eye_tracker',
+    type = int,
+    default = 1,
+    desc = 'determines if fire chicken pop should be disabled by the eye tracker'
+)
+
 def perform_noise_action(action_number, action_string, action_integer):
     if action_number == 1:
         actions.key(action_string)
@@ -47,8 +54,9 @@ def release_key(key: str):
 
 def fire_chicken_pop_enabled():
     tags = scope.get("tag")
-    enabled = 'user.' + DISABLED_TAG_NAME not in tags
-    return enabled
+    disabling_tag_inactive = 'user.' + DISABLED_TAG_NAME not in tags
+    disabled_by_eye_tracker = disable_fire_chicken_pop_when_eye_tracker_disabled.get() != 0 and actions.tracking.control_enabled()
+    return disabling_tag_inactive and not disabled_by_eye_tracker
 
 def on_pop(active):
     if fire_chicken_pop_enabled():
