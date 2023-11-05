@@ -12,6 +12,8 @@ When this is set to 2, the pop action clicks the mouse button specified by the u
 
 When this is set to 3, the pop action calls the action stored in the user.fire_chicken_pop_string setting.
 
+user.fire_chicken_pop_disabled_by_eye_tracker theoretically disables these settings configurable pop when the eye tracker is active and the setting is non-zero. I am currently unable to test this as I do not have an eye tracker. Please tell me of this works if you can test it.
+
 # Examples
 Each example shows the code to put in a talon file to get the desired result.
 ## Press Right With Kindle in Command Mode
